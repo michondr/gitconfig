@@ -43,24 +43,12 @@
 	stash-stage = "!f(){ git stash -- $(git diff --name-only --staged); }; f"
 	rs = reset HEAD~
 	defo = "!f(){ for branch in `git branch -vv | grep -vE '/om-|master' | awk '{print $1}'`; do git branch -D $branch; done };f"	# delete foreign - those not containing 'om-' (my branch prefix) or 'master'
-	deloc = "!f(){ for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done };f"
+	deloc = "!f(){ for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done };f"          # delete local which are not in origin anymore
 
 [core]
 	editor = vim
 	# pager = vim # doesn't support colors=(
 	excludesfile = "~/.gitignore"
-
-[merge]
-	tool = vimdiff
-
-[diff]
-	tool = vimdiff
-	noprefix = true
-	algorithm = patience
-	renames = copies
-
-[pager]
-	diff = "vim -c '%sm/\\e.\\{-}m//ge' -c 'set ft=diff' -c 'normal gg' -c 'set buftype=nofile' -"
 
 [push]
 	default = simple
