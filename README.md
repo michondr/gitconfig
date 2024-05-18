@@ -1,28 +1,43 @@
 # gitconfig
 
-My personal git configuration being used on my laptop as well as on servers I
-have to deal with.
+forked from [porn/gitconfig](https://github.com/porn/gitconfig) few aliases that speed me up
 
-# Features
-* colours everywhere
-* many aliases to save your fingers!
-* using vim for diff and merges
-* git-sh-prompt setup
+# branches
+```shell
+git br
+git co master
+git up
+git unfuck
+git mkbranch ABC-123-some-feature
+```
 
+# rebase
+```shell
+git rb
+git rbc
+git rba
+```
+
+# commits
+```shell
+git ci
+git cp
+```
+and some more
 # Installation
 
-* Download or clone the repository to some directory (e.g. `~/github/porn/gitconfig/`).
+* Download or clone the repository to some directory (e.g. `~/github/michondr/gitconfig/`).
 ```
 cd
-mkdir -p github/porn
-cd github/porn
-git clone https://github.com/porn/gitconfig.git
+mkdir -p github/michondr
+cd github/michondr
+git clone https://github.com/michondr/gitconfig.git
 ```
 
 * Include the gitconfig file in your `~/.gitconfig`:
 ```
 [include]
-	path = ~/github/porn/gitconfig/gitconfig
+	path = ~/github/michondr/gitconfig/gitconfig
 ...
 ```
 This way your personal changes won't overwrite the file when you use:
@@ -35,41 +50,5 @@ git config --global user.email "jb@example.com"
 Feel free to use my collection of file patterns I don't want to track:
 * Symlink the global gitignore file to your home directory
 ```
-ln -s ~/github/porn/gitignore.global ~/.gitignore
-```
-
-## Shell Prompt
-To display the git repository status in the bash prompt there are two options.
-
-### Starship
-I'd love to recommend [starship](https://github.com/starship/starship) project.
-See the "screenshot":
-```
-…/gitconfig (master) [*%] at 10:25:17 $ git st
-## master...origin/master
- M README.md
- M gitconfig
-?? .README.md.swp
-…/gitconfig (master) [*%] at 10:25:19 $
-```
-
-...on the prompt you can see:
-- we're on the `master` branch
-- `*` stands for `Changes not staged for commit`
-- `%` stands for `Untracked files`
-- and the time :)
-
-### Bash Prompt Configuration
-Kinda similar (but way poorer, bash-only) effect can be achieved using the
-`bashrc.gitprompt` in this repo:
-
-* Include the git prompt config in your `~/.bashrc`:
-```
-$ echo "source ~/github/porn/gitconfig/bashrc.gitprompt" >> ~/.bashrc
-```
-On next login your bash prompt will show nice symbols that represent the state
-of your current working tree. If you want to enable git prompt without logging
-out and in, just source the file:
-```
-$ source ~/github/porn/gitconfig/bashrc.gitprompt
+ln -s ~/github/michondr/gitignore.global ~/.gitignore
 ```
